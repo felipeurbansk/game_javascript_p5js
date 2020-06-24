@@ -11,7 +11,6 @@ class Char {
     this.const_width = 220;
     this.const_height = 270;
     this.mappingImage();
-    console.log(this.mapImage);
   }
 
   show() {
@@ -29,6 +28,8 @@ class Char {
   }
 
   anime() {
+    console.log(this.image_count_now);
+    console.log({ mapping: this.mapImage });
     image(
       this.image,
       0,
@@ -41,10 +42,8 @@ class Char {
       this.const_height
     );
 
-    if (++this.image_count_now > this.image_count) {
+    if (++this.image_count_now == this.image_count) {
       this.image_count_now = 0;
-    } else {
-      this.image_count_now++;
     }
   }
 
