@@ -28,8 +28,6 @@ class Char {
   }
 
   anime() {
-    console.log(this.image_count_now);
-    console.log({ mapping: this.mapImage });
     image(
       this.image,
       0,
