@@ -1,6 +1,6 @@
-class Animate {
+class Animate extends MappingImage {
   constructor(
-    mapeamento,
+    mapping,
     image,
     position_x,
     widthChar,
@@ -8,7 +8,7 @@ class Animate {
     widthSprite,
     heightSprite
   ) {
-    this.mapeamento = mapeamento;
+    this.mapping = mapping;
     this.image = image;
     this.position_x = position_x;
     this.position_y = height - heightChar;
@@ -34,21 +34,21 @@ class Animate {
     );
   }
 
-  anime() {
-    image(
-      this.image,
-      0,
-      height - 140,
-      110,
-      135,
-      this.mapImage[this.image_count_now][0],
-      this.mapImage[this.image_count_now][1],
-      this.const_width,
-      this.const_height
-    );
+  //   anime() {
+  //     image(
+  //       this.image,
+  //       0,
+  //       height - 140,
+  //       110,
+  //       135,
+  //       this.mapImage[this.image_count_now][0],
+  //       this.mapImage[this.image_count_now][1],
+  //       this.const_width,
+  //       this.const_height
+  //     );
 
-    if (++this.image_count_now == this.image_count) {
-      this.count_frame = 0;
-    }
-  }
+  //     if (this.count_frame == this.image_count) {
+  //       this.count_frame = 0;
+  //     }
+  //   }
 }
