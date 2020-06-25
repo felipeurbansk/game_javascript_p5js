@@ -17,13 +17,19 @@ class Bruxa extends MappingImage {
     );
 
     this.spriteCountFrame = 0;
+    this.positionX = 50;
+    this.positionY = height - 140;
+    this.velocidade = 10;
+    this.widthFrame = 54;
+    this.heightFrame = 54;
+    this.gravity = 3;
   }
 
   show() {
     image(
       this.image,
-      100,
-      height - 140,
+      this.positionX,
+      this.positionY,
       110,
       135,
       this.positionSpriteX,
@@ -36,8 +42,8 @@ class Bruxa extends MappingImage {
   anime() {
     image(
       this.image,
-      0,
-      height - 140,
+      this.positionX,
+      this.positionY,
       110,
       135,
       this.mapImage[this.spriteCountFrame][0],
@@ -49,4 +55,10 @@ class Bruxa extends MappingImage {
       this.spriteCountFrame = 0;
     }
   }
+
+  jump() {
+    this.positionY -= 56;
+  }
+
+  gravity() {}
 }

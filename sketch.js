@@ -27,3 +27,7 @@ function draw() {
   bruxa.anime();
   hostile.move();
 }
+
+function keyPressed() {
+  if (key == "ArrowUp") bruxa.jump();
+}
