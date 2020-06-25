@@ -1,37 +1,35 @@
 class MappingImage {
   constructor(
     image,
-    countTotalSprite,
+    spriteTotal,
     countSpriteX,
     countSpriteY,
-    initPositionX,
-    initPositionY,
     widthSprite,
     heightSprite
   ) {
+    this.mapImage = [];
     this.image = image;
     this.count_frame = 0;
-    this.count_sprite_total = countTotalSprite;
-    this.count_sprite_x = countSpriteX;
-    this.count_sprite_y = countSpriteY;
-    this.image_position_x = initPositionX;
-    this.image_position_y = initPositionY;
+    this.spriteTotal = spriteTotal;
+    this.countSpriteX = countSpriteX;
+    this.countSpriteY = countSpriteY;
     this.widthSprite = widthSprite;
     this.heightSprite = heightSprite;
-    this.mapImage = [];
     this.mappingImage();
   }
 
   mappingImage() {
-    console.log(this.mapImage);
-    for (let y = 0; y <= this.count_sprite_y; y++) {
-      for (let x = 0; x <= this.count_sprite_x; x++) {
+    for (let y = 0; y < this.countSpriteY; y++) {
+      for (let x = 0; x < this.countSpriteX; x++) {
         this.mapImage = [
           ...this.mapImage,
           [this.widthSprite * x, this.heightSprite * y],
         ];
       }
     }
+
+    this.positionSpriteX = this.mapImage[0][0];
+    this.positionSpriteY = this.mapImage[0][1];
   }
 
   getMapping() {

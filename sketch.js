@@ -13,22 +13,17 @@ function preload() {
 async function setup() {
   createCanvas(windowWidth, windowHeight);
   scene = new Scene(imageScene, 4);
-  char = new Char(imageChar);
-  hostile = new Hostile(
-    mapeamento,
-    image,
-    position_x,
-    widthChar,
-    heightChar,
-    widthSprite,
-    heightSprite
-  );
-  frameRate(12);
+  bruxa = new Bruxa(imageChar, 16, 4, 4, 220, 270);
+  hostile = new Hostile(imageHostile, 28, 4, 7, 104, 104);
+
+  frameRate(30);
   // soundBackground.loop();
 }
 
 function draw() {
   scene.show();
   scene.move();
-  char.anime();
+  hostile.anime();
+  bruxa.anime();
+  hostile.move();
 }
