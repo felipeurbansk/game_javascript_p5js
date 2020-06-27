@@ -2,6 +2,8 @@ class Hostile extends MappingImage {
   constructor(
     image,
     spriteTotal,
+    positionX,
+    positionY,
     countSpriteX,
     countSpriteY,
     widthShowSprite,
@@ -18,12 +20,14 @@ class Hostile extends MappingImage {
       heightSprite
     );
 
-    this.positionX = width - 100;
-    this.positionY = height - 60;
-    this.velocidade = 10;
+    this.positionX = positionX;
+    this.positionY = positionY;
     this.widthShowSprite = widthShowSprite;
     this.heightShowSprite = heightShowSprite;
+
+    this.velocidade = 10;
     this.gravity = 3;
+    this.marginBottom = 40;
 
     this.animation = new Animate(this);
   }

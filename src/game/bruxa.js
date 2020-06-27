@@ -19,6 +19,7 @@ class Bruxa extends MappingImage {
     );
 
     this.positionX = 50;
+    this.marginBottom = 40;
     this.positionY = height - 140;
     this.widthShowSprite = widthShowSprite;
     this.heightShowSprite = heightShowSprite;

@@ -14,7 +14,7 @@ class Animate {
     image(
       this.animation.image,
       this.animation.positionX,
-      this.animation.positionY,
+      this.animation.positionY - this.animation.marginBottom,
       this.animation.widthShowSprite,
       this.animation.heightShowSprite,
       this.animation.mapImage[this.spriteCountFrame][0],
