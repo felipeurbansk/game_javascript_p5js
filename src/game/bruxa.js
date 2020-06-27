@@ -4,6 +4,8 @@ class Bruxa extends MappingImage {
     spriteTotal,
     countSpriteX,
     countSpriteY,
+    widthShowSprite,
+    heightShowSprite,
     widthSprite,
     heightSprite
   ) {
@@ -16,49 +18,45 @@ class Bruxa extends MappingImage {
       heightSprite
     );
 
-    this.spriteCountFrame = 0;
     this.positionX = 50;
     this.positionY = height - 140;
-    this.velocidade = 10;
-    this.widthFrame = 54;
-    this.heightFrame = 54;
-    this.gravity = 3;
+    this.widthShowSprite = widthShowSprite;
+    this.heightShowSprite = heightShowSprite;
+
+    this.animation = new Animate(this);
   }
 
   show() {
-    image(
-      this.image,
-      this.positionX,
-      this.positionY,
-      110,
-      135,
-      this.positionSpriteX,
-      this.positionSpriteY,
-      this.widthSprite,
-      this.heightSprite
-    );
+    this.animation.anime();
   }
 
-  anime() {
-    image(
-      this.image,
-      this.positionX,
-      this.positionY,
-      110,
-      135,
-      this.mapImage[this.spriteCountFrame][0],
-      this.mapImage[this.spriteCountFrame][1],
-      this.widthSprite,
-      this.heightSprite
-    );
-    if (++this.spriteCountFrame == this.spriteTotal) {
-      this.spriteCountFrame = 0;
-    }
+  stop() {
+    this.animation.stop();
+  }
+
+  start() {
+    this.animation.start();
   }
 
   jump() {
-    this.positionY -= 56;
+    this.animation.jump();
   }
 
-  gravity() {}
+  gravity() {
+    this.animation.gravity();
+  }
+
+  collided(inimigo) {
+    const precisao = 0.8;
+    return collideRectRect(
+      this.positionX,
+      this.positionY,
+      this.widthShowSprite * precisao,
+      this.heightShowSprite * precisao,
+      inimigo.positionX,
+      inimigo.positionY,
+      inimigo.widthShowSprite * precisao,
+      inimigo.heightShowSprite * precisao
+    );
+  }
 }
